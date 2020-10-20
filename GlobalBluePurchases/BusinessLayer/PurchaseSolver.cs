@@ -26,12 +26,12 @@ namespace GlobalBluePurchases.BusinessLayer
                     purchase.PriceWithVAT = purchase.PriceWithoutVAT + purchase.AddedTax;
                     break;
                 case PurchaseTypeEnum.PriceWithoutVAT:
-                    purchase.AddedTax = purchase.PriceWithoutVAT / purchase.VATRate;
+                    purchase.AddedTax = purchase.PriceWithoutVAT * ((double)purchase.VATRate / (double)100);
                     purchase.PriceWithVAT = purchase.PriceWithoutVAT + purchase.AddedTax;
                     break;
-                case PurchaseTypeEnum.PriceWithVAT:
-                    purchase.AddedTax = purchase.PriceWithVAT * purchase.VATRate;
-                    purchase.PriceWithoutVAT = purchase.PriceWithVAT - purchase.AddedTax;
+                case PurchaseTypeEnum.PriceWithVAT:                    
+                    purchase.PriceWithoutVAT = purchase.PriceWithVAT / (((double)purchase.VATRate / (double)100) + 1);
+                    purchase.AddedTax = purchase.PriceWithVAT - purchase.PriceWithoutVAT;
                     break;
                 default:
                     break;                
