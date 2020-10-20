@@ -29,7 +29,7 @@ namespace GlobalBluePurchases.Controllers
 
         // GET: api/Purchase
         /// <summary>
-        /// Method that computes missing tax information about an item purchase. One and only one value from AddedTax, PriceWithoutVAT and PriceWithVAT can be set. VATRate has to be set.
+        /// Method that computes missing tax information about a purchase. One and only one value from AddedTax, PriceWithoutVAT and PriceWithVAT can be set. VATRate has to be set.
         /// </summary>
         /// <param name="input">Information about a purchase. One and only one value from AddedTax, PriceWithoutVAT and PriceWithVAT can be set.</param>
         /// <returns>Computed purchase.</returns>
